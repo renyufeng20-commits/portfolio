@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>任语枫 · 欢迎来到我的设计工作室</title>
+<meta name="description" content="欢迎来到任语枫的设计工作室。浏览 UI、品牌与视觉设计作品。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b1012'/%3E%3Ctext x='6' y='24' fill='%23ff8768' font-size='25'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/studio-cover.png">
+<link rel="stylesheet" href="cover.css">
+<link rel="stylesheet" href="cover-effects.css?v=1">
+</head>
+<body>
+<main class="studio">
+<h1 class="sr-only">任语枫的个人作品集 · UI 视觉设计师</h1>
+<div class="scene" id="scene">
+<img class="scene-image" src="assets/studio-cover.png" alt="暖光夜间设计工作室：左侧小机器人，中央复古电脑展示个人作品集与立即浏览按钮，右侧电子钟。" width="1672" height="941">
+<canvas id="studio-animation" width="1672" height="941" aria-hidden="true"></canvas>
+<div class="plant-overlay" aria-hidden="true"><img src="assets/studio-cover.png" alt=""></div>
+<div class="note-overlay note-one" aria-hidden="true"><img src="assets/studio-cover.png" alt=""></div>
+<div class="note-overlay note-two" aria-hidden="true"><img src="assets/studio-cover.png" alt=""></div>
+<button class="note-hotspot note-one" aria-label="查看电脑右上方便签"></button>
+<button class="note-hotspot note-two" aria-label="查看电脑右下方便签"></button>
+<a class="browse-hotspot" href="portfolio.html#about" aria-label="立即浏览，进入个人作品集"><span class="sr-only">立即浏览</span></a>
+<button class="robot-hotspot" id="robot" aria-label="和小机器人打招呼：歪头微笑" aria-pressed="false"><span class="sr-only">和小机器人打招呼</span></button>
+</div>
+<div class="mobile-entry"><p>任语枫 · UI 视觉设计师</p><a href="portfolio.html#about">立即浏览 <span aria-hidden="true">↗</span></a><small>轻点小机器人，和它打个招呼。</small></div>
+<button class="motion-control" id="motion" aria-pressed="false">暂停动效</button>
+<p class="sr-only" id="robot-status" role="status" aria-live="polite"></p>
+</main>
+<script src="entrance.js?v=2"></script>
+<script src="cursor-glow.js?v=1"></script></body></html>

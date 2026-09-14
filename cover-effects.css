@@ -1,0 +1,18 @@
+/* Cover-only atmosphere: a restrained leaf sway and hover enlargement for the two notes. */
+.plant-overlay,.note-overlay{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.plant-overlay img,.note-overlay img{display:block;width:100%;height:100%;object-fit:fill;user-select:none}
+.plant-overlay{clip-path:polygon(27% 0,46% 0,46% 17%,42% 27%,39% 43%,31% 46%,27% 40%);opacity:.34;transform-origin:36% 21%;animation:plant-breathe 5.4s ease-in-out infinite alternate}
+.note-overlay{opacity:0;transition:opacity .22s ease,transform .42s cubic-bezier(.2,.8,.2,1);will-change:transform,opacity}
+.note-overlay.note-one{clip-path:polygon(68.1% 12.5%,77.4% 12.5%,77.4% 25%,68.1% 25%);transform-origin:72.7% 18.7%}
+.note-overlay.note-two{clip-path:polygon(67.9% 56%,77.2% 56%,77.2% 76%,67.8% 76%);transform-origin:72.5% 66%}
+.note-hotspot{position:absolute;border:0;background:transparent;z-index:5;padding:0;cursor:none;outline:none}
+.note-hotspot.note-one{left:68.1%;top:12.5%;width:9.3%;height:12.5%}
+.note-hotspot.note-two{left:67.9%;top:56%;width:9.3%;height:20%}
+.scene:has(.note-hotspot.note-one:hover) .note-overlay.note-one,.scene:has(.note-hotspot.note-one:focus-visible) .note-overlay.note-one,.scene:has(.note-hotspot.note-two:hover) .note-overlay.note-two,.scene:has(.note-hotspot.note-two:focus-visible) .note-overlay.note-two{opacity:1;transform:scale(1.075)}
+.note-hotspot:focus-visible{outline:2px solid #b8d8ff;outline-offset:4px}
+@keyframes plant-breathe{from{transform:rotate(-1.35deg) translateX(-5px) translateY(1px)}to{transform:rotate(1.7deg) translateX(6px) translateY(-2px)}}
+.scene::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;opacity:.32;background-image:radial-gradient(circle,#ffe8bdba 0 1px,transparent 1.7px),radial-gradient(circle,#d9e8ff8c 0 .7px,transparent 1.35px),radial-gradient(circle,#ffc9896b 0 .55px,transparent 1.1px);background-size:114px 97px,173px 149px,71px 127px;background-position:18px 31px,74px 88px,45px 8px;mix-blend-mode:screen;animation:cover-dust 17s linear infinite alternate}
+@keyframes cover-dust{from{background-position:18px 31px,74px 88px,45px 8px}to{background-position:38px -7px,51px 53px,71px -28px}}
+body.motion-paused .plant-overlay,body.motion-paused .scene::after{animation-play-state:paused}
+@media(max-aspect-ratio:4/5){.note-hotspot{display:none}.plant-overlay{animation:none;opacity:.18}}
+@media(prefers-reduced-motion:reduce){.plant-overlay{animation:none}.note-overlay{transition:none}}
